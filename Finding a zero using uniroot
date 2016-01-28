@@ -1,0 +1,40 @@
+#finding a zero for x^3+3x+1 using uniroot
+#before beginning, one must determine an interval such that f(y) 
+# has opposite signs at the endpoints
+# when looking at the graph we saw that only one root exists, 
+# thus we can use a very wide interval making sure the root is in 
+#  between the endpoints
+
+	graphfunction=function(x){
+		(x^3)+(3*x)+1
+		}
+	x=seq(-5,5,len=100)
+	ini=rep(0,100)
+	n=length(ini)
+	for (i in 1:n){
+		ini[i]=graphfunction(x[i])
+		}
+	result=ini
+	plot(x,result,type="l",xlab="x",ylab="f(x)")
+
+	out=uniroot(function(x){
+		(x^3)+(3*x)+1},
+		lower=-100, upper=100, tol=0.0001)
+	out
+
+#another way to write finding a zero for x^3+3x+1 using uniroot
+#  This assumes that we already used the graph to find an interval.
+#  Here I'm just illustrating that you can split the algebraic expression 
+#  of the function into pieces in the definition of the function
+#   This will make it easier to work with complicated functions.  
+
+	out=uniroot(function(x){
+		part1=x^3
+		part2=(3*x)+1
+		all=part1+part2
+		return(all)},
+		lower=-100, upper=100, tol=0.0001)
+	unlist(out)
+
+# the unlist command just lists the whole thing in one row.
+
