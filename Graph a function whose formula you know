@@ -1,0 +1,73 @@
+#  Graph a function whose formula you know
+#  This is a pretty simple example
+
+#  Define the function we want to graph.  
+#  Give it a name.  Here I choose the name graphfunction.
+
+	graphfunction=function(x){
+		result=x^2
+		return(result)}
+
+#  Define the domain over which we will graph it.  
+#  Here I use the seq command with the endpoints and number of points in between.	
+
+	x=seq(-6,6,len=120)
+
+#  Start the process of computing the value of the function for each of the 
+#  values in the domain I will use.	
+
+	ini=rep(0,120)
+	n=length(ini)
+
+#  Now make the loop to define the vector of f(x) values
+
+	for (i in 1:n){
+	ini[i]=graphfunction(x[i])
+	}
+
+#  Now I have a vector of domain values called x and a vector of range values
+#  called ini.   So I call that vector of range values  the result.		
+
+	result=ini
+
+#  Here I make a graph of the range values versus the domain values.   
+#  The third parameter says to draw a line between the points.  	
+
+	plot(x,result,type="l",xlab="x",ylab="f(x)")
+# ------------------------------------------------
+#  Here's the pdf for Chapter 1, problem 47c.  
+
+#  Define the function we want to graph.  
+#  Give it a name.  Here I choose the name graphfunction.
+
+	graphfunction=function(x){
+		result=(exp(-x)) * (exp(-(exp(-x))))
+		return(result)}
+
+#  Define the domain over which we will graph it.  
+#  Here I use the seq command with the endpoints and number of points in between.	
+
+	x=seq(-20,20,len=400)
+
+#  Start the process of computing the value of the function for each of the 
+#  values in the domain I will use.	
+
+	ini=rep(0,400)
+	n=length(ini)
+
+#  Now make the loop to define the vector of f(x) values
+
+	for (i in 1:n){
+	ini[i]=graphfunction(x[i])
+	}
+
+#  Now I have a vector of domain values called x and a vector of range values
+#  called ini.   So I call that vector of range values  the result.		
+
+	result=ini
+
+#  Here I make a graph of the range values versus the domain values.   
+#  The third parameter says to draw a line between the points.  	
+
+	plot(x,result,type="l",xlab="x",ylab="f(x)")
+
